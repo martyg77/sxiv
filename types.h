@@ -50,11 +50,11 @@ typedef enum {
 } flipdir_t;
 
 typedef enum {
-	SCALE_DOWN,
-	SCALE_FIT,
-	SCALE_WIDTH,
-	SCALE_HEIGHT,
-	SCALE_ZOOM
+	SCALE_DOWN,	// (w) Set zoom level to 100%, but fit large images into window (Default)
+	SCALE_FIT,	// (W) Fit image to window
+	SCALE_WIDTH,	// (e) Fit image to window width
+	SCALE_HEIGHT,	// (E) Fit image to window height
+	SCALE_ZOOM	// (+/-/=) Set zoom level
 } scalemode_t;
 
 typedef enum {

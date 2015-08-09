@@ -78,8 +78,13 @@ Search the given directories recursively for images to view.
 Start in slideshow mode. Set the delay between images to DELAY seconds.
 .TP
 .BI "\-s " MODE
-Set scale mode according to MODE character. Supported modes are: [d]own, 
-[f]it, [w]idth, [h]eight.
+Set scale mode according to MODE character.
+Supported modes are:
+[w] Down,
+[W] Fit,
+[e] Width,
+[E] Height.
+See section IMAGE KEYBOARD COMMANDS, Display Mode for more information.
 .TP
 .B \-t
 Start in thumbnail mode.
@@ -268,14 +273,14 @@ Scroll to top image edge.
 .TP
 .B L
 Scroll to right image edge.
-.SS Zooming
+.SS Display Mode
 .TP
 .B =
 Set zoom level to 100%, or
 .IR count %.
 .TP
 .B w
-Set zoom level to 100%, but fit large images into window.
+Set zoom level to 100%, but fit large images into window. (Default)
 .TP
 .B W
 Fit image to window.

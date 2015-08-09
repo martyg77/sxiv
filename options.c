@@ -46,7 +46,7 @@ void parse_options(int argc, char **argv)
 {
 	int n, opt;
 	char *end, *s;
-	const char *scalemodes = "dfwh";
+	const char *scalemodes = "wWeE";
 
 	_options.from_stdin = false;
 	_options.to_stdout = false;
