@@ -62,7 +62,7 @@ bool cg_quit(arg_t _)
 	if (options->to_stdout && markcnt > 0) {
 		for (i = 0; i < filecnt; i++) {
 			if (files[i].flags & FF_MARK)
-				printf("%s\n", files[i].name);
+				printf("%s\n", files[i].path);
 		}
 	}
 	cleanup();
