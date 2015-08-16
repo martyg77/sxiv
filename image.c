@@ -397,6 +397,13 @@ bool img_fit(img_t *img)
 	if (img->scalemode == SCALE_ZOOM)
 		return false;
 
+	if (img->h > img->w) {
+		if (img->scalemode == SCALE_FILL_90)
+			img_rotate(img, DEGREE_90);
+		if (img->scalemode == SCALE_FILL_270)
+			img_rotate(img, DEGREE_270);
+	}
+	
 	zmax = img->scalemode == SCALE_DOWN ? 1.0 : zoom_max;
 	zw = (float) img->win->w / (float) img->w;
 	zh = (float) img->win->h / (float) img->h;
@@ -405,7 +412,10 @@ bool img_fit(img_t *img)
 		case SCALE_WIDTH:
 			z = zw;
 			break;
-		case SCALE_HEIGHT:
+	        case SCALE_FILL_90:
+	        case SCALE_FILL_270:
+			img->dirty = true;
+	        case SCALE_HEIGHT:
 			z = zh;
 			break;
 		default:

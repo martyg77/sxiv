@@ -141,6 +141,8 @@ static const keymap_t keys[] = {
 	{ 0,            XK_less,          i_rotate,             DEGREE_270 },
 	{ 0,            XK_greater,       i_rotate,             DEGREE_90 },
 	{ 0,            XK_question,      i_rotate,             DEGREE_180 },
+	{ 0,            XK_comma,         i_fit_to_win,         SCALE_FILL_270 },
+	{ 0,            XK_period,        i_fit_to_win,         SCALE_FILL_90 },
 	{ 0,            XK_bar,           i_flip,               FLIP_HORIZONTAL },
 	{ 0,            XK_underscore,    i_flip,               FLIP_VERTICAL },
 	{ 0,            XK_a,             i_toggle_antialias,   None },

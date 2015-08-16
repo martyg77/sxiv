@@ -83,7 +83,9 @@ Supported modes are:
 [w] Down,
 [W] Fit,
 [e] Width,
-[E] Height.
+[E] Height,
+[,] Fill-90,
+[.] Fill+90
 See section IMAGE KEYBOARD COMMANDS, Display Mode for more information.
 .TP
 .B \-t
@@ -290,6 +292,15 @@ Fit image to window width.
 .TP
 .B E
 Fit image to window height.
+.TP
+.B ,
+Fit image to window height, maximizing the number of lit screen pixels.
+If the image aspect (portrait/landscape) does not match that of the display,
+rotate the image 90 degrees counter-clockwise and resize to window height.
+This mode is primarily oriented towards widescreen displays.
+.TP
+.B .
+Same as above, except rotate 90 degrees clockwise.
 .SS Rotation
 .TP
 .B <

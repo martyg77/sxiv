@@ -54,6 +54,8 @@ typedef enum {
 	SCALE_FIT,	// (W) Fit image to window
 	SCALE_WIDTH,	// (e) Fit image to window width
 	SCALE_HEIGHT,	// (E) Fit image to window height
+	SCALE_FILL_270, // (,) Scale image to maximize screen pixels, rotate counterclockwise if necessary
+	SCALE_FILL_90,  // (.) Scale image to maximize screen pixels, rotate clockwise if necessary
 	SCALE_ZOOM	// (+/-/=) Set zoom level
 } scalemode_t;
 
