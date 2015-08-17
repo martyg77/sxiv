@@ -1,0 +1,72 @@
+Handling of non-image files passed into sxiv
+Should this be an error or warning, introduce a verbose option?
+Recursive command line option (-r) would need to handle this already 
+
+Why is (r)eload broken
+Why does entering Fill modes only become effective on next image
+
+(Now bound to C-x ^)
+View mode keystroke (^) to go from title view (001) directly to data directory
+Show all files in the currrent image's directory (Probably want to start this in thumbnail mode)
+
+Inhibit Touchpad Button1
+My laptop touchpad has a hair-trigger touch-to-click
+For the purposes of this program <space> and 'n' work just as well
+Need option to turn touchpad tapping off (Tap to click is main offender)
+This could/should be a command line option at some later point in time
+
+Thumbnail scaling
+Tweak sxiv so thumbnail mode shows bigger image (thumbnail scaling)
+	Zoom parameter on command line is for pictures only, not thumbnails
+	Are new thumbnails created everytime I change size, or is scaling applied
+
+Scaling Rationalization / Rationalize scaling modes
+Reset scaling every time a new image is loaded
+Zoom mode supercedes scaling modes
+Mode parameters, e.g. zoom need to be reset every time a new picture is loaded
+e.g. Reset scaling (zoom?) to a good default (based on mode) every time a new image is loaded
+Should zoom be a display mode at all?
+Would I ever use this - Most common use modes are 100% (scaled to display
+Should get command line display mode characters to match keystrokes at runtime
+Deprecate -Z command line option in favor of -z 100 or -s 
+
+Consolidate arrow-key scrolling
+Bind PgUp and PgDn to Next/Previous
+
+---
+
+Zoom mode, Fill mode
+a.k.a. Widescreen mode, Pixel mode (Bind to ',' and '.' keys)
+Tweak sxiv to autorotate whenever new aspect would result in more screen pixels
+Should imply Height(E) display mode, Fullscreen window
+picture height > screen height for this to make sense
+Need a method to set rotation at +90 and -90 degrees
+Do I want to accomodate 4:3 and portrait displays (May not be able to test)
+
+Zooming tweaks
+Quick way is just to add more stepsizes in config.h:zoom_levels
+sxiv zooming should be done in smaller increments - Why use discrete steps at all?
+Should this really be precentages relative to image size, or (some ratio of) window size
+At a minimum, fixed step zooming should include steps for fit height/width
+
+Fine Scrolling
+Add Shift specifier to arrow keys in display mode (scroll 1/8 normal stepsize)
+Note this currently relative to screen size - I think this should be image size
+
+Cycle through picture list (Should this be _my_ default?)
+Cycle though picture list instead of stopping at end
+This would eliminate the need for my sp script for Xfce
+
+---
+
+Autoscroll mode
+New mode - Open image widescreen, pan automatically top to bottom
+I think I need to create an animated version of each file e.g. via imagemagick scripting
+Take a look at Kodi screensaver, and see how it is done there
+
+Tweak sxiv to delegate thumbnail management to Thunar - Perhaps make this app a Thunar plugin
+Note sxiv thumbnailing system is independant from thunar/tumbler
+Thumbnail management appears consolidated in org.xfce.tumbler.*
+Should this app be dependant on specific window manager facilities?
+
+sxiv '-a' (animate)  option should default to ON (Tweaked my command lines as workaround)
