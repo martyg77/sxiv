@@ -31,6 +31,9 @@ static const float zoom_levels[] = {
 	100.0, 150.0, 200.0, 400.0, 800.0
 };
 
+/* default scroll increment, based on screen size */
+static const int SCROLL_STEPS = 16;
+
 /* default slideshow delay (in sec, overwritten via -S option): */
 enum { SLIDESHOW_DELAY = 5 };
 
