@@ -27,8 +27,9 @@ static const char * const BAR_FG_COLOR = "#EEEEEE";
  * (first/last value is used as min/max zoom level)
  */
 static const float zoom_levels[] = {
-	 12.5,  25.0,  50.0,  75.0,
-	100.0, 150.0, 200.0, 400.0, 800.0
+	  6.3,  12.5,  25.0,  37.5,  50.0,  62.5,  75.0,  87.5,
+	100.0,
+	125.0, 150.0, 175.0, 200.0, 300.0, 400.0, 600.0, 800.0
 };
 
 /* default scroll increment, based on screen size */
