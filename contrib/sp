@@ -1,0 +1,16 @@
+#!/bin/bash
+
+dir=$(dirname "$1")
+name=$(basename "$1")
+
+tmp=`mktemp`
+ls -1 "$dir" >"$tmp"
+trap "rm "$tmp"" EXIT
+
+# Position of specified file relative to its directory
+cut=`grep -n "$name" "$tmp" | cut -f1 -d:`
+
+# sxiv does not natively support wrap-around viewing through the file list
+# As a workaround tweak the file list from 1aaaaXbbbb$ to 1aaaaXbbbb$1aaaaX
+head -n $cut "$tmp" >>"$tmp"
+cat "$tmp" | sxiv -fbiao -n $cut >>~/.marked

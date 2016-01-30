@@ -1,0 +1,8 @@
+Xfce/Thunar Bindings
+
+F5 - rp %F (View Images Recursively/Randomly)
+F6 - find %F -iname '*001.jpg' | sort | sxiv -Zitf (Thubmail 001)
+F7 - sxiv -f "$(dirname "`find %F -iname '*001.jpg' | shuf | head -n 1`")"/* (Random 001)
+
+F8 - rv %F (View Videos Randomly)
+F9 - rt %F (Skip Videos Randomly)

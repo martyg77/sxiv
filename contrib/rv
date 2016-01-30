@@ -1,0 +1,32 @@
+#!/bin/bash
+
+skip=0
+#player=totem
+
+usage() { echo "Usage: $0 [-h] [-s <seconds>] [<path>]*">&2; exit 1; }
+
+# Parse command line options
+while getopts "hs:" o; do
+    case "${o}" in
+	s)
+	    skip=${OPTARG}
+	    [[ $skip =~ ^[0-9]+$ ]] || usage
+	    ;;
+	h|*)
+	    usage
+	    ;;
+    esac
+done
+shift $((OPTIND-1))
+
+# If list of pathnames is empty, use current directory
+if [ "$#" -eq 0 ]; then
+  d=( "." )
+else
+  d=( "$@" )
+fi
+
+# Play videos in random order
+find "${d[@]}" -type f -iregex '.*\.\(mkv\|mp4\|wmv\|mpg\|avi\)$' -print0 \
+    | shuf -z \
+    | xargs -0 ${player:-"vlc" --start-time $skip}

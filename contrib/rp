@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ "$#" -eq 0 ]; then
+  d=( "." )
+else
+  d=( "$@" )
+fi
+
+find "${d[@]}" -type f -iregex '.*\.\(jpg\|png\|gif\)$' \
+    | shuf \
+    | sxiv -ibfao >>~/.marked

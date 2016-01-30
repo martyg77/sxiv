@@ -1,0 +1,37 @@
+#!/bin/sh
+
+m3u=`mktemp`.m3u
+echo "#EXTM3U" >$m3u
+trap "rm "$m3u"" EXIT
+
+# Use current directory unless specific paths provided on command line
+if [ "$#" -eq 0 ]; then
+    d=( "." )
+else
+    d=( "$@" )
+fi
+
+# Find all video content and randomize playback order
+# Limit results to 32 files as probing requires significant network resources
+find "${d[@]}" -type f -iregex '.*\.\(mkv\|mp4\|wmv\|mpg\|avi\)$' \
+    | shuf -n 32 \
+    | while read i ; do
+
+    f=`readlink -f "$i"`
+    
+    # Start playback at random position between 5 and 95 percent
+#   length=`ffprobe -i "$f" -show_entries format=duration -v quiet -of csv="p=0"`
+#   seconds=${length%.*}
+    msec=`mediainfo --Inform="Video;%Duration%" "$f"`
+    let "seconds = msec / 1000"
+    percent=$RANDOM
+    let "percent %= 90"
+    let "percent += 5"
+    let "skip = $seconds * $percent / 100"
+
+    echo "#EXTVLCOPT:start-time=" $skip >>$m3u
+    echo $f >>$m3u
+done
+
+#smplayer $m3u
+vlc $m3u
