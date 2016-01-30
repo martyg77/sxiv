@@ -2,8 +2,12 @@ Handling of non-image files passed into sxiv
 Should this be an error or warning, introduce a verbose option?
 Recursive command line option (-r) would need to handle this already 
 
+PgUp PgDn key binding in thumbnail mode
+
 Why is (r)eload broken
 Why does entering Fill modes only become effective on next image
+
+Consider flipping Fill mode +/- direction when "?" (Rotate-180) command is used
 
 (Now bound to C-x ^)
 View mode keystroke (^) to go from title view (001) directly to data directory
@@ -53,9 +57,11 @@ Fine Scrolling
 Add Shift specifier to arrow keys in display mode (scroll 1/8 normal stepsize)
 Note this currently relative to screen size - I think this should be image size
 
-Cycle through picture list (Should this be _my_ default?)
+Cycle through picture list (-L) (Should this be _my_ default?)
 Cycle though picture list instead of stopping at end
 This would eliminate the need for my sp script for Xfce
+
+Do I want to build in ability to randomize (-Z)
 
 ---
 
